@@ -1,0 +1,28 @@
+{
+  "curated_at": "2025-12-26T00:56:35Z",
+  "total_templates": 22,
+  "templates": [
+    {"name": "Awesome-CLAUDE-Main", "sourceRepo": "awesome-claude-md", "sourcePath": ".", "filesCopied": ["CLAUDE.md"]},
+    {"name": "Agent-Claude-MD-Expert", "sourceRepo": "awesome-claude-md", "sourcePath": ".claude/agents", "filesCopied": ["claude-md-expert.md"]},
+    {"name": "Agent-Example-Curator", "sourceRepo": "awesome-claude-md", "sourcePath": ".claude/agents", "filesCopied": ["example-curator.md"]},
+    {"name": "Agent-Project-Docs-Curator", "sourceRepo": "awesome-claude-md", "sourcePath": ".claude/agents", "filesCopied": ["project-docs-curator.md"]},
+    {"name": "Command-Evaluate-Quality", "sourceRepo": "awesome-claude-md", "sourcePath": ".claude/commands", "filesCopied": ["evaluate-quality.md"]},
+    {"name": "Command-Sync", "sourceRepo": "awesome-claude-md", "sourcePath": ".claude/commands", "filesCopied": ["sync.md"]},
+    {"name": "Agent-Code-Reviewer", "sourceRepo": "superpowers", "sourcePath": "agents", "filesCopied": ["code-reviewer.md"]},
+    {"name": "Command-Brainstorm", "sourceRepo": "superpowers", "sourcePath": "commands", "filesCopied": ["brainstorm.md"]},
+    {"name": "Command-Execute-Plan", "sourceRepo": "superpowers", "sourcePath": "commands", "filesCopied": ["execute-plan.md"]},
+    {"name": "Command-Write-Plan", "sourceRepo": "superpowers", "sourcePath": "commands", "filesCopied": ["write-plan.md"]},
+    {"name": "Skill-Brainstorming", "sourceRepo": "superpowers", "sourcePath": "skills/brainstorming", "filesCopied": ["SKILL.md"]},
+    {"name": "Skill-Dispatching-Parallel-Agents", "sourceRepo": "superpowers", "sourcePath": "skills/dispatching-parallel-agents", "filesCopied": ["SKILL.md"]},
+    {"name": "Skill-Executing-Plans", "sourceRepo": "superpowers", "sourcePath": "skills/executing-plans", "filesCopied": ["SKILL.md"]},
+    {"name": "Skill-Finishing-Dev-Branch", "sourceRepo": "superpowers", "sourcePath": "skills/finishing-a-development-branch", "filesCopied": ["SKILL.md"]},
+    {"name": "Skill-Receiving-Code-Review", "sourceRepo": "superpowers", "sourcePath": "skills/receiving-code-review", "filesCopied": ["SKILL.md"]},
+    {"name": "Skill-Requesting-Code-Review", "sourceRepo": "superpowers", "sourcePath": "skills/requesting-code-review", "filesCopied": ["SKILL.md", "code-reviewer.md"]},
+    {"name": "Skill-Subagent-Driven-Development", "sourceRepo": "superpowers", "sourcePath": "skills/subagent-driven-development", "filesCopied": ["SKILL.md", "implementer-prompt.md", "spec-reviewer-prompt.md", "code-quality-reviewer-prompt.md"]},
+    {"name": "Skill-Systematic-Debugging", "sourceRepo": "superpowers", "sourcePath": "skills/systematic-debugging", "filesCopied": ["SKILL.md", "root-cause-tracing.md", "defense-in-depth.md", "condition-based-waiting.md"]},
+    {"name": "Skill-Test-Driven-Development", "sourceRepo": "superpowers", "sourcePath": "skills/test-driven-development", "filesCopied": ["SKILL.md", "testing-anti-patterns.md"]},
+    {"name": "Skill-Using-Git-Worktrees", "sourceRepo": "superpowers", "sourcePath": "skills/using-git-worktrees", "filesCopied": ["SKILL.md"]},
+    {"name": "Skill-Using-Superpowers", "sourceRepo": "superpowers", "sourcePath": "skills/using-superpowers", "filesCopied": ["SKILL.md"]},
+    {"name": "Codex-Bootstrap", "sourceRepo": "superpowers", "sourcePath": ".codex", "filesCopied": ["superpowers-bootstrap.md", "INSTALL.md"]}
+  ]
+}

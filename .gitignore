@@ -1,0 +1,67 @@
+# Claude Super Agent - .gitignore
+
+# Logs
+01_SHARED_ASSETS/Tools/_logs/
+*.log
+
+# External Repositories (cloned from other sources)
+01_SHARED_ASSETS/External_Repos/
+
+# Knowledge Base (may contain sensitive/proprietary information)
+# Uncomment if you want to exclude your knowledge base:
+# 01_SHARED_ASSETS/KnowledgeBase/Claude-Master-Knowledge/
+
+# Environment and secrets
+.env
+.env.local
+*.secret
+credentials.json
+api_keys.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# PowerShell
+*.ps1~
+
+# Temporary files
+*.tmp
+*.temp
+~$*
+
+# Node modules (if any Node.js projects)
+node_modules/
+
+# Python cache (if any Python projects)
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+.pytest_cache/
+.coverage
+
+# Sandbox experiments (optional - uncomment to exclude sandbox)
+# 99_SANDBOX/
+
+# Build outputs
+dist/
+build/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Package files
+*.zip
+*.tar.gz
+*.rar

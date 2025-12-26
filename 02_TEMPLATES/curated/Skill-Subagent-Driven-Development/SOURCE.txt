@@ -1,0 +1,3 @@
+Source Repository: superpowers
+Original Path: skills/subagent-driven-development
+Curated: 2025-12-26 00:58:00 UTC
