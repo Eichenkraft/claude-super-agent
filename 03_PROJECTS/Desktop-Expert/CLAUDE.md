@@ -79,28 +79,85 @@ This project focuses on Windows desktop automation, PowerShell scripting, termin
    }
    ```
 
-## Codex Delegation Rules
+## MULTI-AI EFFICIENCY PROTOCOL
 
-### MUST Delegate to Codex When:
-- **4+ files** will be created or modified
-- **200+ lines of code** will be written
+**Goal**: Achieve 80%+ delegation rate for maximum development velocity through specialization.
+
+### The Strategy
+```
+Claude Code    → ORCHESTRATION (Coordination, Planning, Decisions)
+Codex GPT-5.2  → IMPLEMENTATION (Heavy Coding, Large Tasks) [UNLIMITED]
+Gemini CLI     → CONSULTATION (Architecture, Quick Questions) [FAST]
+```
+
+### BEFORE ANY CODING TASK - MANDATORY ANALYSIS:
+
+1. **Estimate Complexity**:
+   - Count estimated Lines of Code (LOC)
+   - Count files to be modified/created
+   - Estimate implementation time
+
+2. **Delegation Decision Tree**:
+   ```
+   IF LOC > 50 OR files > 2:
+       → STOP! Create Codex Brief
+       → Log decision to ../../01_SHARED_ASSETS/Tools/_stats/delegation-log.json
+       → Execute: ai-codex "brief.md"
+
+   ELSE IF Architecture/Design Question:
+       → Ask Gemini first
+       → Execute: ai-gemini "question"
+
+   ELSE IF Multiple Independent Tasks:
+       → Delegate in PARALLEL to Codex + Gemini
+       → Coordinate results
+
+   ELSE (< 50 LOC AND 1-2 files):
+       → May implement directly
+       → STILL log to delegation-log.json as "handled_directly"
+   ```
+
+## Codex Delegation Rules (ENFORCED)
+
+### MUST Delegate to Codex When ANY of:
+- **50+ LOC** estimated (LOWERED from 200 for max efficiency!)
+- **3+ files** will be created or modified
 - **New MCP server** development
 - **New repository** initialization
 - **Complex integrations** (multi-step, multiple systems)
 - **Refactoring** across multiple modules
+- **Task duration estimated > 10 minutes**
+- **Implementing any new feature** (not just edits)
 
-### MAY Handle Directly When:
-- **< 4 files** affected
-- **< 50 LOC** total
+### MAY Handle Directly ONLY When ALL of:
+- **< 50 LOC total**
+- **1-2 files** maximum
 - **Simple edits** to existing scripts
-- **Configuration changes**
-- **Documentation updates**
+- **No architectural decisions** required
+- **Task duration < 5 minutes**
+- **CRITICAL**: You MUST still log to `_stats/delegation-log.json`
 
 ### How to Delegate:
 ```powershell
 # Create Codex brief (see delegate_codex.md template)
 # Then execute:
 ai-codex "path\to\brief.md"
+```
+
+### Delegation Tracking (CRITICAL):
+Every task MUST be logged to: `../../01_SHARED_ASSETS/Tools/_stats/delegation-log.json`
+
+Log format:
+```json
+{
+  "timestamp": "2025-12-26T12:00:00Z",
+  "task": "Brief description",
+  "estimated_loc": 150,
+  "files_count": 3,
+  "delegated_to": "codex|gemini|self",
+  "reason": "Exceeded LOC threshold",
+  "success": true
+}
 ```
 
 ## Gemini Usage
@@ -245,29 +302,50 @@ For any task, success means:
 
 ## Example Workflows
 
-### Create a New Automation Script
-1. Plan the script (inputs, outputs, steps)
-2. If > 50 LOC or complex logic: create Codex brief
-3. If < 50 LOC: implement directly
-4. Test the script
-5. Update CHANGELOG.md
-6. Document in README.md
+### Create a New Automation Script (EFFICIENCY-OPTIMIZED)
+1. **Analyze Task**:
+   - Estimate LOC (lines of code)
+   - Count files affected
+2. **Decision**:
+   - If > 50 LOC OR > 2 files: Create Codex brief → `ai-codex "brief.md"`
+   - If < 50 LOC AND 1-2 files: May implement directly (but LOG!)
+3. **Execute**:
+   - Codex implements OR you implement
+4. **Validate**:
+   - Test the script
+   - Update CHANGELOG.md
+   - Document in README.md
+5. **Track**:
+   - Log delegation decision to `_stats/delegation-log.json`
 
-### Develop an MCP Server
-1. Research requirements (consult Gemini if unsure)
-2. Create Codex brief (MCP servers are usually 200+ LOC)
-3. Delegate to Codex
-4. Test the server with Claude Code
-5. Update CHANGELOG.md
-6. Add usage instructions to README.md
+### Develop an MCP Server (ALWAYS DELEGATE!)
+1. **Consult Gemini** (architecture question):
+   - `ai-gemini "Best approach for MCP server that does X?"`
+2. **Create Codex Brief**:
+   - MCP servers are typically 50+ LOC (usually 200+)
+   - ALWAYS delegate to Codex!
+3. **Delegate**:
+   - `ai-codex "mcp-server-brief.md"`
+4. **Test**:
+   - Test the server with Claude Code
+5. **Document**:
+   - Update CHANGELOG.md
+   - Add usage instructions to README.md
+6. **Track**:
+   - Codex wrapper auto-logs to `_stats/delegation-log.json`
 
 ### Automate Image Generation Workflow
-1. Define image sequence requirements
-2. Create PowerShell script calling super-image-generator
-3. If simple (< 50 LOC): implement directly
-4. If complex (sequences, processing): delegate to Codex
-5. Test generation
-6. Update CHANGELOG.md
+1. **Analyze Complexity**:
+   - Simple single image: ~20-30 LOC → May implement directly
+   - Sequence with processing: 50+ LOC → Delegate to Codex
+2. **Architecture Decision** (if complex):
+   - `ai-gemini "Best way to handle image sequence generation?"`
+3. **Implement**:
+   - Simple: Implement directly, LOG to delegation-log.json
+   - Complex: Create Codex brief → `ai-codex "image-workflow-brief.md"`
+4. **Test & Document**:
+   - Test generation
+   - Update CHANGELOG.md
 
 ## Notes
 

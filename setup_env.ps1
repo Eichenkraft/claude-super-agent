@@ -70,6 +70,32 @@ function global:ai-gemini {
     }
 }
 
+function global:ai-delegate {
+    param(
+        [Parameter(Mandatory=$true)]
+        [string]$TaskDescription,
+        [switch]$AutoBrief
+    )
+
+    $delegateScript = "$env:CLAUDE_SUPER_AGENT_ROOT\delegate_smart.ps1"
+
+    if ($AutoBrief) {
+        & $delegateScript -TaskDescription $TaskDescription -AutoBrief
+    } else {
+        & $delegateScript -TaskDescription $TaskDescription
+    }
+}
+
+function global:ai-stats {
+    param(
+        [ValidateSet("today", "week", "month", "all")]
+        [string]$Period = "today"
+    )
+
+    $statsScript = "$env:CLAUDE_SUPER_AGENT_ROOT\show_delegation_stats.ps1"
+    & $statsScript -Period $Period
+}
+
 function global:ai-help {
     Write-Host ""
     Write-Host "=== Claude Super Agent - Command Reference ===" -ForegroundColor Cyan
@@ -83,12 +109,20 @@ function global:ai-help {
     Write-Host "  ai-project <name>    Navigate to specific project"
     Write-Host "  ai-sandbox           Navigate to sandbox (99_SANDBOX)"
     Write-Host ""
-    Write-Host "Tool Commands:" -ForegroundColor Yellow
-    Write-Host "  ai-codex <brief>     Execute Codex CLI with brief (file path or text)"
-    Write-Host "  ai-gemini <question> Execute Gemini CLI with question (file path or text)"
+    Write-Host "Delegation Commands:" -ForegroundColor Yellow
+    Write-Host "  ai-codex <brief>        Execute Codex CLI with brief (file path or text)"
+    Write-Host "  ai-gemini <question>    Execute Gemini CLI with question (file path or text)"
+    Write-Host "  ai-delegate <task>      Analyze task and recommend tool (-AutoBrief for brief generation)"
+    Write-Host "  ai-stats [period]       Show delegation statistics (today/week/month/all)"
     Write-Host ""
     Write-Host "Other Commands:" -ForegroundColor Yellow
-    Write-Host "  ai-help              Show this help message"
+    Write-Host "  ai-help                 Show this help message"
+    Write-Host ""
+    Write-Host "Quick Examples:" -ForegroundColor Cyan
+    Write-Host "  ai-delegate `"Create log parser script`" -AutoBrief"
+    Write-Host "  ai-codex `"my-brief.md`""
+    Write-Host "  ai-gemini `"Should I use JSON or SQLite?`""
+    Write-Host "  ai-stats week"
     Write-Host ""
     Write-Host "Environment:" -ForegroundColor Yellow
     Write-Host "  CLAUDE_SUPER_AGENT_ROOT = $env:CLAUDE_SUPER_AGENT_ROOT"
@@ -98,8 +132,8 @@ function global:ai-help {
 Write-Host "✓ Navigation functions loaded:" -ForegroundColor Green
 Write-Host "  ai-root, ai-boss, ai-shared, ai-templates, ai-projects, ai-sandbox, ai-project" -ForegroundColor Gray
 
-Write-Host "✓ Tool functions loaded:" -ForegroundColor Green
-Write-Host "  ai-codex, ai-gemini" -ForegroundColor Gray
+Write-Host "✓ Delegation commands loaded:" -ForegroundColor Green
+Write-Host "  ai-codex, ai-gemini, ai-delegate, ai-stats" -ForegroundColor Gray
 
 Write-Host ""
 Write-Host "Type 'ai-help' for command reference" -ForegroundColor Cyan

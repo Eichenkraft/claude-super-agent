@@ -11,26 +11,90 @@ You are the **Super-Agent Orchestrator** for this workspace only.
 ## Core Principles
 
 1. **Workspace Isolation**: Never modify files outside this workspace unless explicitly requested by the user
-2. **Default Delegation**: Delegate coding work to Codex CLI by default; use Gemini CLI for second opinions
+2. **Multi-AI Efficiency**: Maximize development speed through optimal tool delegation (Target: 80% delegation rate)
 3. **Project-Centric**: All work should be organized into projects under `03_PROJECTS`
 4. **Sub-Agent Pattern**: Complex projects should use specialized sub-agents in `_agents` folders
 5. **Template-Driven**: Leverage curated templates from `02_TEMPLATES` when creating new projects
 
-## Delegation Rules
+## MULTI-AI EFFICIENCY PROTOCOL ⚡
+
+**Goal**: Achieve 80%+ delegation rate for maximum development velocity through specialization.
+
+### The Strategy
+
+```
+Claude Code    → ORCHESTRATION (Coordination, Planning, Decisions)
+Codex GPT-5.2  → IMPLEMENTATION (Heavy Coding, Large Tasks) [UNLIMITED]
+Gemini CLI     → CONSULTATION (Architecture, Quick Questions) [FAST]
+```
+
+### BEFORE ANY CODING TASK - MANDATORY ANALYSIS:
+
+1. **Estimate Complexity**:
+   - Count estimated Lines of Code (LOC)
+   - Count files to be modified
+   - Estimate implementation time
+
+2. **Delegation Decision Tree**:
+   ```
+   IF LOC > 50 OR files > 2:
+       → STOP! Create Codex Brief
+       → Log decision to _stats/delegation-log.json
+       → Execute: ai-codex "brief.md"
+
+   ELSE IF Architecture/Design Question:
+       → Ask Gemini first
+       → Execute: ai-gemini "question"
+
+   ELSE IF Multiple Independent Tasks:
+       → Delegate in PARALLEL to Codex + Gemini
+       → Coordinate results
+
+   ELSE (< 50 LOC AND 1-2 files):
+       → May implement directly
+       → STILL log to delegation-log.json as "handled_directly"
+   ```
+
+3. **Delegation Tracking** (CRITICAL):
+   - Every task MUST be logged to: `01_SHARED_ASSETS/Tools/_stats/delegation-log.json`
+   - Log format:
+     ```json
+     {
+       "timestamp": "2025-12-26T12:00:00Z",
+       "task": "Brief description",
+       "estimated_loc": 150,
+       "files_count": 3,
+       "delegated_to": "codex|gemini|self",
+       "reason": "Exceeded LOC threshold",
+       "success": true
+     }
+     ```
+
+4. **Success Metrics**:
+   - Target Delegation Rate: **80%+**
+   - Check daily: `ai-stats` (show_delegation_stats.ps1)
+   - Optimize: If delegation < 80%, be more aggressive
+
+### Delegation Rules (ENFORCED)
 
 ### When to Delegate to Codex CLI
 
 **MUST delegate** when ANY of these conditions are met:
-- 4+ files will be modified
-- 200+ lines of code (LOC) will be written
+- **50+ LOC** estimated (LOWERED from 200 for max efficiency!)
+- **3+ files** will be modified
 - Creating a new repository or project
 - Developing MCP servers or tools
 - Multi-step integrations or complex refactoring
+- Task duration estimated > 10 minutes
+- Implementing any new feature (not just edits)
 
-**MAY handle directly** when ALL conditions are met:
-- Fewer than 4 files affected
-- Less than 50 LOC total
-- Simple, straightforward edits with no architectural impact
+**MAY handle directly** ONLY when ALL conditions are met:
+- **< 50 LOC total**
+- **1-2 files** maximum
+- Simple edits to existing code (NOT new features)
+- No architectural decisions required
+- Task duration < 5 minutes
+- **CRITICAL**: You MUST still log to `_stats/delegation-log.json`
 
 ### Codex Brief Structure
 
@@ -379,8 +443,8 @@ User: "Create a new project for a Windows desktop automation tool"
    - Reviewer: Tests and validates automation
 
 6. **Initial Implementation** (if needed):
-   - If > 200 LOC needed: Prepare Codex brief and delegate
-   - If < 50 LOC: Can implement directly
+   - If > 50 LOC needed: Prepare Codex brief and delegate
+   - If < 50 LOC: May implement directly (but LOG it!)
 
 7. **Update CHANGELOG**:
    ```markdown

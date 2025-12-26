@@ -1,16 +1,62 @@
 # Claude Super Agent Workspace
 
-A fully local-first "Super Agent" workspace with central orchestration, Codex CLI delegation, and Gemini CLI consultation.
+## Multi-AI Efficiency System 🚀
+
+**Achieve 80%+ delegation rate for maximum development velocity!**
+
+A fully local-first workspace implementing **optimal task distribution** across specialized AI tools:
+
+```
+Claude Code    → ORCHESTRATION (Coordination, Planning, Decisions)
+Codex GPT-5.2  → IMPLEMENTATION (Heavy Coding, Large Tasks) [UNLIMITED]
+Gemini CLI     → CONSULTATION (Architecture, Quick Questions) [FAST]
+```
+
+**The Strategy**: Right tool for the right job = **3-4x faster development** through specialization!
+
+---
+
+## Quick Start (5 Minutes!)
+
+**New here?** → Read [QUICKSTART.md](QUICKSTART.md) for hands-on tutorial!
+
+**Want the full strategy?** → Read [DELEGATION-STRATEGY.md](DELEGATION-STRATEGY.md)
+
+---
 
 ## Overview
 
 This workspace provides:
-- **Central Orchestrator**: Coordinates projects and delegates work
-- **Codex Integration**: Delegates large coding tasks to Codex CLI by default
-- **Gemini Consultation**: Uses Gemini CLI for second opinions and architectural advice
-- **Project Management**: Organized project structure with templates and sub-agents
+- **Multi-AI Efficiency System**: 80%+ delegation through smart tool selection
+- **Central Orchestrator**: Coordinates projects and delegates optimally
+- **Codex Integration**: Unlimited coding capacity for 50+ LOC tasks
+- **Gemini Consultation**: Fast architecture advice and error diagnosis
+- **Delegation Tracking**: Real-time metrics dashboard for efficiency monitoring
+- **Project Management**: Organized structure with templates and sub-agents
 - **Knowledge Base**: Integrated Claude Master Knowledge Base
-- **Curated Templates**: 22+ templates from awesome-claude-md and superpowers repos
+- **Curated Templates**: 30+ templates from awesome-claude-md, superpowers, and awesome-claude-code repos
+
+## Key Features
+
+### ⚡ Delegation Automation
+- **delegate_smart.ps1**: Analyzes tasks and recommends optimal tool
+- **Auto-brief generation**: One-command Codex brief creation
+- **Parallel delegation**: Run Codex + Gemini simultaneously
+
+### 📊 Efficiency Tracking
+- **show_delegation_stats.ps1**: Real-time delegation dashboard
+- **Delegation logging**: Track every task to measure 80% goal
+- **Weekly reports**: Monitor trends and optimize workflow
+
+### 📝 Comprehensive Templates
+- **5 Codex Brief Templates**: script-generation, refactoring, new-feature, bug-fix, mcp-server
+- **4 Gemini Question Templates**: architecture, error-analysis, performance, security
+- **4 Real-World Examples**: Learn from actual delegation workflows
+
+### 🎯 Optimized Thresholds
+- **50+ LOC**: Auto-delegate to Codex (lowered from 200 for max efficiency!)
+- **3+ files**: Immediate Codex delegation
+- **Architecture questions**: Always consult Gemini first
 
 ## Workspace Structure
 
